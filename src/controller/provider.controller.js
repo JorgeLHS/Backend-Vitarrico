@@ -1,42 +1,42 @@
-import Provider from '../model/Provider';
+import Supplier from '../model/Supplier';
 
-export const allProviders = async (req, res) => {
+export const allSuppliers = async (req, res) => {
     try {
-        const providers = await Provider.find();
-        res.status(200).send(providers);
+        const supplier = await Supplier.find();
+        res.status(200).send(supplier);
     } catch (error) {
         console.log(error);
         res.status(500).send(error);
     }
 }
 
-export const createProvider = async (req, res) => {
+export const createSupplier = async (req, res) => {
     try {
-        const provider = new Provider(req.body);
-        await provider.save()
-        res.status(201).send(provider);
+        const supplier = new Supplier(req.body);
+        await supplier.save()
+        res.status(201).send(supplier);
     } catch (error) {
         console.log(error);
         res.status(400).send(error);
     }
 }
 
-export const updateProvider = async (req, res) => {
+export const updateSupplier = async (req, res) => {
     try {
         const { id } = req.params;
-        const provider = await Provider.findOneAndUpdate({_id: id}, req.body);
-        res.status(201).send(provider);
+        const supplier = await Supplier.findOneAndUpdate({_id: id}, req.body);
+        res.status(201).send(supplier);
     } catch (error) {
         console.log(error);
         res.status(400).send(error);
     }
 }
 
-export const deleteProvider = async (req, res) => {
+export const deleteSupplier = async (req, res) => {
     try {
         const { id } = req.params;
-        const provider = await Provider.findOneAndDelete({_id: id});
-        res.status(200).send(provider);
+        const supplier = await Supplier.findOneAndDelete({_id: id});
+        res.status(200).send(supplier);
     } catch (error) {
         console.log(error);
         res.status(400).send(error);

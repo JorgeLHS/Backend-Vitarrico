@@ -1,1 +1,0 @@
-// Verify tokens and level of administration
